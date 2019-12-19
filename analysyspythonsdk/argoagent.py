@@ -93,7 +93,6 @@ class AnalysysPythonSdk(object):
         if event_properties:
             event_all_properties.update(event_properties)
         self._dataStructure("track",event_name,distinct_id,None,event_all_properties,data_platform,event_time,is_login)
-        print("event happened in " + event_time)
 
     def alias(self,alias_id,distinct_id,data_platform,alias_properties=None):
         '''

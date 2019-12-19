@@ -93,7 +93,6 @@ class AnalysysPythonSdk(object):
         if event_properties:
             event_all_properties.update(event_properties)
         self._dataStructure("track",event_name,distinct_id,None,event_all_properties,data_platform,event_time,is_login)
-        print("event time is " + event_time.strftime('%Y-%m-%d %H:%M:%S'))
 
     def alias(self,alias_id,distinct_id,data_platform,alias_properties=None):
         '''
@@ -179,7 +178,7 @@ class AnalysysPythonSdk(object):
             "appid": self.appid,
             "xwho": distinct_id,
             "xwhat": event_name,
-            "xwhen":self._current_time() if event_time is None else int(time.mktime(event_time.timetuple())*1000),
+            "xwhen":self._current_time() if event_time is None else int(time.mktime(datetime.strptime(event_time,'%Y-%m-%d %H:%M:%S').timetuple())*1000),
             "xcontext": properties
         }
         lib_properties = {

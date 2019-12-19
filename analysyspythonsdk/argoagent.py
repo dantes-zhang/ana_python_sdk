@@ -80,7 +80,7 @@ class AnalysysPythonSdk(object):
         '''
         self._super_properties = {}
 
-    def track(self,distinct_id,event_name,event_properties,data_platform,is_login=False):
+    def track(self,distinct_id,event_name,event_properties,data_platform,is_login=False,event_time):
         '''
 
         :param distinct_id: 用户唯一标识
@@ -92,7 +92,7 @@ class AnalysysPythonSdk(object):
         event_all_properties = self._super_properties.copy()
         if event_properties:
             event_all_properties.update(event_properties)
-        self._dataStructure("track",event_name,distinct_id,None,event_all_properties,data_platform,is_login)
+        self._dataStructure("track",event_name,distinct_id,None,event_all_properties,data_platform,is_login,event_time)
 
 
     def alias(self,alias_id,distinct_id,data_platform,alias_properties=None):
@@ -174,12 +174,12 @@ class AnalysysPythonSdk(object):
         '''
         return self._dataStructure("profile_delete",None,distinct_id,None,{},data_platform,is_login)
 
-    def _dataStructure(self,event_type,event_name,distinct_id,original_id,properties,data_platform,is_login,xwhen):
+    def _dataStructure(self,event_type,event_name,distinct_id,original_id,properties,data_platform,is_login,event_time):
         data = {
             "appid": self.appid,
             "xwho": distinct_id,
             "xwhat": event_name,
-            "xwhen":self._current_time() if xwhen is None else int(time.mktime(xwhen.timetuple())*1000),
+            "xwhen":self._current_time() if xwhen is None else int(time.mktime(event_time.timetuple())*1000),
             "xcontext": properties
         }
         lib_properties = {

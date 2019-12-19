@@ -179,7 +179,7 @@ class AnalysysPythonSdk(object):
             "appid": self.appid,
             "xwho": distinct_id,
             "xwhat": event_name,
-            "xwhen":self._current_time() if xwhen is None else int(time.mktime(event_time.timetuple())*1000),
+            "xwhen":self._current_time() if event_time is None else int(time.mktime(event_time.timetuple())*1000),
             "xcontext": properties
         }
         lib_properties = {

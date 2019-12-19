@@ -80,7 +80,7 @@ class AnalysysPythonSdk(object):
         '''
         self._super_properties = {}
 
-    def track(self,distinct_id,event_name,event_properties,data_platform,is_login=False,event_time):
+    def track(self,distinct_id,event_name,event_properties,data_platform,event_time,is_login=False):
         '''
 
         :param distinct_id: 用户唯一标识
@@ -92,7 +92,7 @@ class AnalysysPythonSdk(object):
         event_all_properties = self._super_properties.copy()
         if event_properties:
             event_all_properties.update(event_properties)
-        self._dataStructure("track",event_name,distinct_id,None,event_all_properties,data_platform,is_login,event_time)
+        self._dataStructure("track",event_name,distinct_id,None,event_all_properties,data_platform,event_time,is_login)
 
 
     def alias(self,alias_id,distinct_id,data_platform,alias_properties=None):
@@ -174,7 +174,7 @@ class AnalysysPythonSdk(object):
         '''
         return self._dataStructure("profile_delete",None,distinct_id,None,{},data_platform,is_login)
 
-    def _dataStructure(self,event_type,event_name,distinct_id,original_id,properties,data_platform,is_login,event_time):
+    def _dataStructure(self,event_type,event_name,distinct_id,original_id,properties,data_platform,event_time,is_login):
         data = {
             "appid": self.appid,
             "xwho": distinct_id,

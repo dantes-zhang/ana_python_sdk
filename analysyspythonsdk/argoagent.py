@@ -7,6 +7,7 @@ import re
 from analysyspythonsdk.checkdata import checkData
 from analysyspythonsdk.defaultcollecter import *
 from analysyspythonsdk.batchcollecter import *
+from datetime import datetime
 
 # print(platform.python_version())
 __PYTHON_SDK_VERSION__ = "4.0.9"

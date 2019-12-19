@@ -1,4 +1,4 @@
-/# _*_coding:utf-8_*_
+# _*_coding:utf-8_*_
 
 from __future__ import unicode_literals
 import time

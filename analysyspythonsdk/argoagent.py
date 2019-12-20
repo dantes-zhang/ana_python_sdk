@@ -108,7 +108,7 @@ class AnalysysPythonSdk(object):
             alias_all_properties.update(alias_properties)
         self._dataStructure("alias",None,alias_id,distinct_id,alias_all_properties,data_platform,is_login=False)
 
-    def profile_set(self,distinct_id,profile_properties,data_platform,is_login=False):
+    def profile_set(self,distinct_id,profile_properties,data_platform,event_time,is_login=False):
         '''
         设置一个用户的profile，如果已存在则覆盖
         :param distinct_id: 用户唯一标识
@@ -117,7 +117,7 @@ class AnalysysPythonSdk(object):
         :param is_login: 是否为登录用户
         '''
         if profile_properties:
-            return self._dataStructure("profile_set",None,distinct_id,None,profile_properties,data_platform,is_login)
+            return self._dataStructure("profile_set",None,distinct_id,None,profile_properties,data_platform,event_time,is_login)
 
     def profile_set_once(self,distinct_id,profile_properties,data_platform,is_login=False):
         '''

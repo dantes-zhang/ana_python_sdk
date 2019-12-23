@@ -182,7 +182,7 @@ class AnalysysPythonSdk(object):
             "xwhen":self._current_time() if event_time is None else int(time.mktime(datetime.strptime(event_time,'%Y-%m-%d %H:%M:%S').timetuple())*1000),
             "xcontext": properties
         }
-        print(xwhen)
+        print(data[xwhen])
         lib_properties = {
             "$lib": "python",
             "$lib_version": __PYTHON_SDK_VERSION__,

@@ -180,6 +180,7 @@ class AnalysysPythonSdk(object):
             "xwho": distinct_id,
             "xwhat": event_name,
             "xwhen":self._current_time() if event_time is None else int(time.mktime(datetime.strptime(event_time,'%Y-%m-%d %H:%M:%S').timetuple())*1000),
+            print("current time is: " + self._current_time())
             "xcontext": properties
         }
         lib_properties = {
